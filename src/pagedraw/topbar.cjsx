@@ -1052,8 +1052,9 @@ module.exports = Topbar = createReactClass {
                           <Topbarbutton state={"A"} text={"Make Reusable"} onClick={(@props.editor.handleNewComponent)} image={"https://ucarecdn.com/1d46e25f-2b59-47c9-8f1d-9b6de444386a/"} disabled={(@props.editor.getSelectedBlocks().length == 0)} /> 
                       </div>
                       <div className="topbar-topbarbutton_instance_16">
-                          <Topbarbutton state={"A"} text={"Sync Code"} onClick={(@props.editor.handleExport)} image={"https://ucarecdn.com/54591ad3-7fea-4d20-aa86-f238ca03aeac/"} disabled={false} /> 
+                          <Topbarbutton state={"A"} text={"Code sync karle bhai"} onClick={(@props.editor.handleExport)} image={"https://ucarecdn.com/54591ad3-7fea-4d20-aa86-f238ca03aeac/"} disabled={false} /> 
                       </div>
+                      
                       <div className="topbar-3-0-0-6" /> 
                       <div className="topbar-topbarbutton_instance_11">
                           <Topbarbutton state={"A"} text={"Preview"} onClick={(@props.editor.handlePlay)} image={"https://ucarecdn.com/96f40588-00f2-453a-89b8-6df4287ab39a/"} disabled={(not @props.editor.topbarPlayButtonIsEnabled())} /> 
@@ -1129,7 +1130,10 @@ module.exports = Topbar = createReactClass {
                           <Topbarbutton state={"A"} text={"Make Multistate"} onClick={(@props.editor.handleMakeMultistate)} image={"https://ucarecdn.com/874818bf-3f3b-4928-835b-061218fc26bf/"} disabled={(@props.editor.getSelectedBlocks().length == 0)} /> 
                       </div>
                       <div className="topbar-topbarbutton-2">
-                          <Topbarbutton state={"A"} text={"Sync Code"} onClick={(@props.editor.handleExport)} image={"https://ucarecdn.com/54591ad3-7fea-4d20-aa86-f238ca03aeac/"} disabled={false} /> 
+                          <Topbarbutton state={"A"} text={"sync karle bhai"} onClick={(@props.editor.handleExport)} image={"https://ucarecdn.com/54591ad3-7fea-4d20-aa86-f238ca03aeac/"} disabled={false} /> 
+                      </div>
+                      <div className="topbar-topbarbutton_instance_13-8">
+                            <Topbarbutton state={"A"} text={"Import from Figma"} onClick={(@props.editor.handleImportFromFigma)} image={"https://ucarecdn.com/8417d66c-2efb-4f3d-a128-10bb64bfbae0/"} disabled={false} /> 
                       </div>
                       <div className="topbar-5-0-0-8" /> 
                       <div className="topbar-topbarbutton_instance_11-4">

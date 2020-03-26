@@ -1302,6 +1302,28 @@ exports.Editor = Editor = createReactClass
         # from the StackBlitz topbar
         @props.onStackBlitzShare?()
 
+    handleImportFromFigma: ->
+       modal.show ((closeHandler) =>
+            return [
+                    <Modal.Header>
+                        <Modal.Title>Import from Figma</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                    <FormControl type="text" style={width: '100%'} valueLink={propLink(this, 'figma_url_val', => @handleDocChanged(fast: 'true'))} placeholder="Enter Figma URL" />
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <PdButtonOne type="default" onClick={closeHandler}>Close</PdButtonOne>
+                        <PdButtonOne type="primary" onClick={(=>
+                            promise = figma_import(@figma_url_val, window.pd_params.figma_access_token)
+                            @figma_url_val = '';
+                            setTimeout((=>
+                                promise.then((t)=>@setDocJson(t.doc_json))
+                            ),3000)
+                            closeHandler()
+                        )}>Import</PdButtonOne>
+         </Modal.Footer>
+   ])
+
     handleExport: ->
         modal.show (closeHandler) =>
             # The Tabs used below didn't layout correctly right out of the box
@@ -1351,6 +1373,8 @@ exports.Editor = Editor = createReactClass
                     <PdButtonOne type="primary" onClick={closeHandler}>Close</PdButtonOne>
                 </Modal.Footer>
             ]
+
+            
 
     topbarPlayButtonIsEnabled: -> @getPlayStartScreen()?
 
