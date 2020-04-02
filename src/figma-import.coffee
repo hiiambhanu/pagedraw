@@ -105,6 +105,10 @@ set_dyn_attr = (block, prop, value, blockUniqueKey) ->
 
 
 exports.figma_import = figma_import = (figma_url, apiKey) ->
+    # apiKey = '39230-454ce826-8756-469a-918f-f20b22a1e428'
+    # apiKey = '39235-c900a6c3-ba70-4535-855e-9a780a5784d3'
+    # apiKey ='40154-32903f3f-7b0f-48d7-803e-67c7b676c8fa'
+    apiKey='40156-35c3a898-09f4-4951-a640-ea43696b6a0a'
     [is_staging, fileId] = [null, null] # declared up here so all promise.thens can get them
     [eventualImageBlocks, nonImageBlocks] = [null, null]
     idImageHash = null
@@ -115,7 +119,7 @@ exports.figma_import = figma_import = (figma_url, apiKey) ->
         assert -> route.startsWith('/')
         figma_api_domain = unless is_staging then "https://api.figma.com" else "https://staging-api.figma.com"
         return fetch("#{figma_api_domain}/v1#{route}", {
-            headers: new Headers({"Authorization": "Bearer #{apiKey}"})
+            headers: new Headers({"X-Figma-Token": "#{apiKey}"})
             mode: 'cors'
         }).then((resp) -> resp.json())
 
